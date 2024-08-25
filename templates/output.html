@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Output - Crop Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Styles as defined earlier */
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Prediction Result</h1>
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('crop_prediction') }}">Explore Project</a>
+        </nav>
+    </header>
+    <main class="container mt-4">
+        <h2>Predicted Crops:</h2>
+        <div class="crop-container">
+            {% for crop, hindi_name in crops %}
+            <div class="crop-card">
+                <img src="{{ url_for('static', filename='images/crops/' + crop + '.jpg') }}" alt="{{ crop }}" class="crop-img">
+                <p class="crop-name">{{ crop }} ({{ hindi_name }})</p>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="btn-container">
+            <a class="btn" href="{{ url_for('crop_prediction') }}">Back to Project</a>
+            <a class="btn" href="{{ url_for('home') }}">Back to Home</a>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Crop Prediction. All rights reserved.</p>
+    </footer>
+</body>
+</html>

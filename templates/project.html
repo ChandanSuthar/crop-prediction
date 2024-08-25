@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Prediction Form</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Enter Details for Crop Prediction</h1>
+        <form action="{{ url_for('predict') }}" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="N">Nitrogen (N) / नाइट्रोजन (N):</label>
+                <input type="number" class="form-control" name="N" required>
+            </div>
+            <div class="form-group">
+                <label for="P">Phosphorus (P) / फास्फोरस (P):</label>
+                <input type="number" class="form-control" name="P" required>
+            </div>
+            <div class="form-group">
+                <label for="K">Potassium (K) / पोटेशियम (K):</label>
+                <input type="number" class="form-control" name="K" required>
+            </div>
+            <div class="form-group">
+                <label for="temperature">Temperature (°C) / तापमान (°C):</label>
+                <input type="number" class="form-control" name="temperature" required>
+            </div>
+            <div class="form-group">
+                <label for="humidity">Humidity (%) / आर्द्रता (%):</label>
+                <input type="number" class="form-control" name="humidity" required>
+            </div>
+            <div class="form-group">
+                <label for="ph">pH Value / pH मान:</label>
+                <input type="number" class="form-control" name="ph" step="0.1" required>
+            </div>
+            <div class="form-group">
+                <label for="rainfall">Rainfall (mm) / वर्षा (मिमी):</label>
+                <input type="number" class="form-control" name="rainfall" required>
+            </div>
+            <div class="d-flex justify-content-between mt-4">
+                <a class="btn btn-secondary btn-lg" href="{{ url_for('home') }}" role="button">Back / वापस</a>
+                <button type="submit" class="btn btn-primary btn-lg">Submit / सबमिट करें</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
